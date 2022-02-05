@@ -34,7 +34,7 @@ public:
     }
     
     void HashMapSetup() {
-        possible[0] = {-1,1,0};
+        possible[0] = {-1,0,1};
         possible[1] = {1,-1,0};
         possible[2] = {0,1,-1};
     }
