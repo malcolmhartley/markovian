@@ -17,6 +17,7 @@ public:
     // game possibilities (1 = win & 0 = loss)
     unordered_map<int,vector<int>> possible;
     unordered_map<int,string> hands = {{1,"rock"},{2,"paper"},{3,"scissors"}};
+    unordered_map<int,int> decision = {{0,1},{1,2},{2,0}};
     
     // Hidden Markov Model Transition Matrix
     vector<vector<int>> matrix_count = {{0,0,0},{0,0,0},{0,0,0}};
@@ -47,7 +48,7 @@ public:
             }
             if (sum != 0) {
                 for (int j = 0; j < 3; j++) {
-                    matrix_probability[i].at(j) = matrix_count[i][j] / sum;
+                    matrix_probability[i].at(j) = static_cast<double>(matrix_count[i][j]) / sum;
                 }
             }
         }
@@ -80,6 +81,16 @@ public:
         }
     }
     
+    int displayCpuMove(int x) {
+        if (x == 0)
+            cout << "Rock -> ";
+        if (x == 1)
+            cout << "Paper -> ";
+        if (x == 2)
+            cout << "Scissors -> ";
+        return x;
+    }
+    
     int computerHand() {
         if (prev != -1) {
             int max = 0;
@@ -87,7 +98,7 @@ public:
                 if (matrix_probability[prev][i] > matrix_probability[prev][max])
                     max = i;
             }
-            return (matrix_probability[prev][max] > 0) ? max : randHand();
+            return (matrix_probability[prev][max] > 0) ? decision[max] : randHand();
         } else {
             return randHand();
         }
@@ -98,7 +109,7 @@ public:
         int ans;
         
         solveMatrix();
-        ans = possible[x][computerHand()];
+        ans = possible[x][displayCpuMove(computerHand())];
         
         if (prev != -1) {
             matrix_count[prev].at(x) += 1;
