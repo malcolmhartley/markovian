@@ -1,0 +1,23 @@
+Usage:
+	[user]		(Required) player nickname used to save data
+	[n]		(Required) number of games to play
+	[help]		(Optional) display this help message and exit
+
+How to Play:
+	The key differences between the traditional game and Markovian
+	RPS is aside from the fact your playing against a computer
+	program, the process slightly differs. In order to play a round,
+	you simply type a number followed by the return key.
+
+Key Mapping:	
+	[1] -> "Rock"
+	[2] -> "Paper"
+	[3] -> "Scissors"
+
+About:
+	Markovian R.P.S. is a simple game of Rock-paper-scissors. But
+	there's something special about it. Instead of opting to rely
+	strictly on pseudo-randomized algorithms to create your digital
+	adversary, the developer of this game decided to make use of
+	statistical machine learning to create a more worthy adversary.
+
