@@ -109,7 +109,7 @@ public:
         int ans;
         
         solveMatrix();
-        ans = possible[x][displayCpuMove(computerHand())];
+        ans = (prev != -1) ? possible[x][displayCpuMove(computerHand())] : possible[x][computerHand()];
         
         if (prev != -1) {
             matrix_count[prev].at(x) += 1;
