@@ -7,5 +7,4 @@ Technical Details:
   Makes use of Markovian State Space Transition Matrices.
   
 How to install:
-  git clone https://github.com/malcolmhartley/markovian
-  cd markovian && g++ -std=c++11 markovian.cpp -o markovian 
+  git clone https://github.com/malcolmhartley/markovian && cd markovian && g++ -std=c++11 markovian.cpp -o markovian 
